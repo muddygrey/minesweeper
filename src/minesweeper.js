@@ -1,18 +1,22 @@
-// Declare a constant for a blank line of the game board
-const blankLine = "  |   |  ";
-// Declare a constant for a sample line of the game board where a user has 'guessed' by selecting the first square
-const guessLine = "1 |   |  ";
-// Declare a constant for a sample line of the game board where a bomb/mine is revealed
-const bombLine = "  | B |  ";
+// Create a function to format the board when it is printed to the screen
+const printBoard = board => {
+  console.log("Current Board:");
+// loop through all the rows and print them to the screen with a pipe character separating columns
+  for (var row of board) {
+    console.log(row.join(' | '));
+  }
+};
 
-// Print the blank line to the console for testing and demonstrating a sample empty game board
-console.log("This is what an empty game board would look like:");
-console.log(blankLine);
-console.log(blankLine);
-console.log(blankLine);
+// Create a generic game board
+const board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
 
-// Print the simulated game board to the console
-console.log("This is what a game board with a guess and a bomb on it might look like:");
-console.log(guessLine);
-console.log(bombLine);
-console.log(blankLine);
+printBoard(board);
+
+board[0][1] = "1";
+board[2][2] = "B";
+
+printBoard(board);
